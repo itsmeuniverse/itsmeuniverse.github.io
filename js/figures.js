@@ -128,6 +128,70 @@
     requestAnimationFrame(frame);
   }
 
+
+  /* ------------------------------------------------------------------ */
+  /* Figure 0: a two-neuron cubic network computes a binary cubic form,  */
+  /* f(x) = b1 (a1.x)^3 + b2 (a2.x)^3. Generic binary cubics decompose   */
+  /* this way in exactly one way (Sylvester); aligned neurons break it.  */
+  /* ------------------------------------------------------------------ */
+  var WARING = {
+    init: function (f) { var s = f.state; s.clock = 0; s.rot = 0.3; s.d = 1; },
+    shuffle: function () {},
+    still: function (f) { f.state.d = 0.6; f.syncSlider(0.6); },
+    setT: function (f, v) { f.state.d = v; f.state.clock = Math.acos(2 * v - 1) / Math.PI * 8; },
+    step: function (f, dt) {
+      var s = f.state;
+      s.clock = (s.clock + dt) % 16;            // gap: open -> aligned -> open over 16 s
+      s.d = Math.min(1, Math.max(0, 0.5 + 0.54 * Math.cos(Math.PI * s.clock / 8)));
+      f.syncSlider(s.d);
+      s.rot += dt * 0.18;
+    },
+    params: function (s) {
+      var gap = s.d * Math.PI * 0.5;            // angle between a1 and a2
+      return [
+        { phi: s.rot - gap / 2, b: 1.0 + 0.25 * Math.sin(s.rot * 0.7) },
+        { phi: s.rot + gap / 2, b: -0.8 + 0.25 * Math.cos(s.rot * 0.9) }
+      ];
+    },
+    draw: function (f, ctx, w, h) {
+      var s = f.state, P = this.params(s);
+      ctx.clearRect(0, 0, w, h);
+      var cx = w / 2, cy = h / 2 + 6, R = Math.min(w, h) * 0.26, K = R * 0.72, N = 240;
+      function term(i, th) { var c = Math.cos(th - P[i].phi); return P[i].b * c * c * c; }
+      function polar(fn, stroke, lw, dash) {
+        ctx.beginPath();
+        for (var k = 0; k <= N; k++) {
+          var th = 2 * Math.PI * k / N, r = Math.max(R + K * fn(th), 2);
+          var X = cx + r * Math.cos(th), Y = cy - r * Math.sin(th);
+          if (k === 0) ctx.moveTo(X, Y); else ctx.lineTo(X, Y);
+        }
+        ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.setLineDash(dash || []); ctx.stroke(); ctx.setLineDash([]);
+      }
+      // zero circle
+      polar(function () { return 0; }, alpha(C.text, 0.28), 1, [3, 4]);
+      // the two rank-one terms
+      polar(function (th) { return term(0, th); }, alpha(C.accent, 0.55), 1.2);
+      polar(function (th) { return term(1, th); }, alpha(C.warm, 0.6), 1.2);
+      // their sum: the function the network computes
+      polar(function (th) { return term(0, th) + term(1, th); }, C.text, 2.4);
+      ctx.fillStyle = alpha(C.accent, 0.07); ctx.fill();
+      // neuron directions a1, a2
+      [C.accent, C.warm].forEach(function (col, i) {
+        var ex = cx + R * 0.82 * Math.cos(P[i].phi), ey = cy - R * 0.82 * Math.sin(P[i].phi);
+        ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex, ey); ctx.stroke();
+        ctx.beginPath(); ctx.arc(ex, ey, 3, 0, 2 * Math.PI); ctx.fill();
+        ctx.font = 'italic 14px "Source Serif 4", Georgia, serif'; ctx.textAlign = 'center';
+        ctx.fillText('a' + (i ? '₂' : '₁'), cx + R * 0.62 * Math.cos(P[i].phi + (i ? 0.22 : -0.22)), cy - R * 0.62 * Math.sin(P[i].phi + (i ? 0.22 : -0.22)) + 5);
+      });
+      ctx.fillStyle = C.text; ctx.beginPath(); ctx.arc(cx, cy, 2, 0, 2 * Math.PI); ctx.fill();
+      ctx.font = 'italic 14px "Source Serif 4", Georgia, serif'; ctx.textAlign = 'left'; ctx.fillStyle = C.text;
+      ctx.fillText('f(x) = b₁(a₁·x)³ + b₂(a₂·x)³', 12, 22);
+      ctx.textAlign = 'right';
+      ctx.fillText(s.d < 0.02 ? 'a₁ ∥ a₂ : fiber is a curve' : 'one decomposition, up to symmetry', w - 12, h - 12);
+    }
+  };
+
   /* ------------------------------------------------------------------ */
   /* Figure 1: Bures–Wasserstein geodesic between two covariances        */
   /* ------------------------------------------------------------------ */
@@ -552,7 +616,7 @@
     }
   };
 
-  var impls = { bw: BW, moe: MOE, noise: NOISE, fiber: FIBER };
+  var impls = { waring: WARING, bw: BW, moe: MOE, noise: NOISE, fiber: FIBER };
   refreshColors();
   document.querySelectorAll('.fig[data-fig]').forEach(function (el) {
     var impl = impls[el.getAttribute('data-fig')];
