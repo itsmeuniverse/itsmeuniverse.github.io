@@ -438,7 +438,121 @@
   /* ------------------------------------------------------------------ */
   /* Boot                                                                */
   /* ------------------------------------------------------------------ */
-  var impls = { bw: BW, moe: MOE, noise: NOISE };
+
+  /* ------------------------------------------------------------------ */
+  /* Hero: gradient flow on L(a,b) = (ab - c)^2; the fiber ab = c        */
+  /* degenerates to a node at c = 0.                                     */
+  /* ------------------------------------------------------------------ */
+  var FIBER = {
+    R: 2, NP: 90, LMAX: Math.log(1 + 25),
+    init: function (f) {
+      var s = f.state;
+      s.c = 1; s.clock = 0; s.az = -0.75; s.p = [];
+      for (var i = 0; i < this.NP; i++) s.p.push(this.spawn());
+    },
+    spawn: function () {
+      var R = this.R;
+      return { a: (Math.random() * 2 - 1) * R * 0.95, b: (Math.random() * 2 - 1) * R * 0.95, trail: [], age: Math.random() * 3 };
+    },
+    shuffle: function () {},
+    still: function (f) { f.state.c = 0.35; f.syncSlider(0.35); },
+    setT: function (f, v) { f.state.c = v; f.state.clock = Math.acos(2 * v - 1) / Math.PI * 9; },
+    loss: function (a, b, c) { var r = a * b - c; return r * r; },
+    h: function (a, b, c) { return Math.log(1 + this.loss(a, b, c)) / this.LMAX; },
+    step: function (f, dt) {
+      var s = f.state, self = this;
+      s.clock = (s.clock + dt) % 18;            // c: 1 -> 0 -> 1 over 18 s
+      s.c = Math.min(1, Math.max(0, 0.5 + 0.56 * Math.cos(Math.PI * s.clock / 9)));
+      f.syncSlider(s.c);
+      s.az += dt * 0.12;
+      this.flow(s, dt);
+    },
+    flow: function (s, dt) {
+      var self = this, lr = 0.9 * dt;
+      s.p.forEach(function (q, i) {
+        for (var k = 0; k < 3; k++) {
+          var r = q.a * q.b - s.c;
+          var ga = 2 * r * q.b, gb = 2 * r * q.a;
+          var g = Math.sqrt(ga * ga + gb * gb), cap = 4;
+          if (g > cap) { ga *= cap / g; gb *= cap / g; }
+          q.a -= lr * ga; q.b -= lr * gb;
+        }
+        q.trail.push([q.a, q.b]); if (q.trail.length > 26) q.trail.shift();
+        q.age += dt;
+        if (q.age > 5 + (i % 7) * 0.4 || Math.abs(q.a) > self.R || Math.abs(q.b) > self.R) s.p[i] = self.spawn();
+      });
+    },
+    proj: function (f, a, b, z) {
+      var s = f.state, w = f.w, h = f.h;
+      var ca = Math.cos(s.az), sa = Math.sin(s.az);
+      var x = a * ca - b * sa, y = a * sa + b * ca;
+      var sc = Math.min(w, h) * 0.24, tilt = 0.5;
+      return [w / 2 + sc * x, h * 0.64 + sc * (y * tilt) - sc * 1.05 * z, y];
+    },
+    color: function (z) { // low -> accent, high -> warm
+      return z < 0.5 ? alpha(C.accent, 0.55 - 0.3 * z) : alpha(C.warm, 0.15 + 0.4 * (z - 0.5));
+    },
+    draw: function (f, ctx, w, h) {
+      var s = f.state, R = this.R, self = this, n = 26, m = 48;
+      ctx.clearRect(0, 0, w, h);
+      ctx.lineWidth = 1;
+      // wireframe
+      for (var dir = 0; dir < 2; dir++) {
+        for (var i = 0; i <= n; i++) {
+          var u = -R + 2 * R * i / n, prev = null;
+          for (var j = 0; j <= m; j++) {
+            var v = -R + 2 * R * j / m;
+            var a = dir ? u : v, b = dir ? v : u;
+            var z = self.h(a, b, s.c), P = self.proj(f, a, b, z);
+            if (prev) {
+              ctx.strokeStyle = self.color(0.5 * (z + prev[3]));
+              ctx.beginPath(); ctx.moveTo(prev[0], prev[1]); ctx.lineTo(P[0], P[1]); ctx.stroke();
+            }
+            prev = [P[0], P[1], P[2], z];
+          }
+        }
+      }
+      // zero set: the fiber ab = c
+      ctx.strokeStyle = C.text; ctx.lineWidth = 2.2; ctx.lineCap = 'round';
+      function curve(fn, t0, t1) {
+        ctx.beginPath(); var started = false;
+        for (var k = 0; k <= 80; k++) {
+          var t = t0 + (t1 - t0) * k / 80, ab = fn(t);
+          if (Math.abs(ab[0]) > R || Math.abs(ab[1]) > R) { started = false; continue; }
+          var P = self.proj(f, ab[0], ab[1], 0);
+          if (!started) { ctx.moveTo(P[0], P[1]); started = true; } else ctx.lineTo(P[0], P[1]);
+        }
+        ctx.stroke();
+      }
+      if (s.c < 0.004) {
+        curve(function (t) { return [t, 0]; }, -R, R);
+        curve(function (t) { return [0, t]; }, -R, R);
+        var O = self.proj(f, 0, 0, 0);
+        ctx.fillStyle = C.warm; ctx.beginPath(); ctx.arc(O[0], O[1], 4.5, 0, 2 * Math.PI); ctx.fill();
+      } else {
+        var lo = s.c / R;
+        curve(function (t) { return [t, s.c / t]; }, lo, R);
+        curve(function (t) { return [-t, -s.c / t]; }, lo, R);
+      }
+      // particles under gradient flow
+      s.p.forEach(function (q) {
+        if (q.trail.length > 1) {
+          ctx.strokeStyle = alpha(C.warm, 0.5); ctx.lineWidth = 1.2; ctx.beginPath();
+          q.trail.forEach(function (t, k) {
+            var P = self.proj(f, t[0], t[1], self.h(t[0], t[1], s.c));
+            if (k) ctx.lineTo(P[0], P[1]); else ctx.moveTo(P[0], P[1]);
+          });
+          ctx.stroke();
+        }
+        var P = self.proj(f, q.a, q.b, self.h(q.a, q.b, s.c));
+        ctx.fillStyle = C.warm; ctx.beginPath(); ctx.arc(P[0], P[1], 2.2, 0, 2 * Math.PI); ctx.fill();
+      });
+      ctx.font = 'italic 15px "Source Serif 4", Georgia, serif'; ctx.fillStyle = C.text; ctx.textAlign = 'right';
+      ctx.fillText(s.c < 0.004 ? 'ab = 0  (singular)' : 'ab = ' + s.c.toFixed(2), w - 14, h - 14);
+    }
+  };
+
+  var impls = { bw: BW, moe: MOE, noise: NOISE, fiber: FIBER };
   refreshColors();
   document.querySelectorAll('.fig[data-fig]').forEach(function (el) {
     var impl = impls[el.getAttribute('data-fig')];

@@ -53,16 +53,18 @@
       <div class="intro-text">
         <h1>Woojoo Na</h1>
         <p class="tagline">A geometer, working across machine learning</p>
+        <p class="bio-lead">
+          I am a mathematician working on machine learning.
+        </p>
+        <p>
+          Trained in pure mathematics at <a href="https://www.ox.ac.uk/">Oxford</a>, I take structures that already
+          exist in geometry, algebraic geometry and topology, and use them to prove why neural networks and generative
+          models behave the way they do: the right space, the shape of a set of solutions, the geometry of a path.
+        </p>
         <p>
           I am a PhD student in Electrical and Computer Engineering at
           <a href="https://www.northeastern.edu/">Northeastern University</a>, advised by
           <a href="https://mllabneu.github.io/">Professor Jennifer Dy</a>.
-        </p>
-        <p>
-          I trained as a pure mathematician at <a href="https://www.ox.ac.uk/">Oxford</a>, and I approach machine learning
-          through the lens of geometry and topology: many hard problems become tractable once you find the right space,
-          the right shape of the feasible set, or the right path. I use that structure to design algorithms with
-          guarantees, across several areas of machine learning.
         </p>
         <p>
           At Oxford, I did undergraduate research with
@@ -89,12 +91,28 @@
     <!-- ============================== RESEARCH ============================== -->
     <section id="research" class="block">
       <h2>Research</h2>
-      <p class="lede">
-        My research answers foundational questions about neural networks and generative models with theorems,
-        built from structures that already exist in geometry, algebraic geometry and topology. Selected papers are
-        listed under each research direction below. A full list is on
-        <a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ">Google Scholar</a>.
-      </p>
+      <div class="research-intro">
+        <p class="lede">
+          My research answers foundational questions about neural networks and generative models with theorems,
+          built from structures that already exist in geometry, algebraic geometry and topology. Selected papers are
+          listed under each research direction below. A full list is on
+          <a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ">Google Scholar</a>.
+        </p>
+        <figure class="fig fig-hero" data-fig="fiber">
+          <span class="chip">Fibers &amp; singularities</span>
+          <canvas aria-label="Animation: gradient flow on the loss surface (ab minus c) squared. Particles slide onto the curve ab = c, which degenerates into two crossing lines as c goes to zero." role="img"></canvas>
+          <div class="fig-controls">
+            <label>c <input type="range" min="0" max="1" step="0.001" value="1" data-role="t" aria-label="Target value c"></label>
+            <button type="button" data-role="play" aria-label="Pause animation">Pause</button>
+          </div>
+          <figcaption>
+            Gradient flow on the loss L(a, b) = (ab &minus; c)<sup>2</sup> of the smallest network, x &#8614; a&middot;b&middot;x.
+            The minimizers form the fiber ab = c of the map (a, b) &#8614; ab. As c &rarr; 0 the smooth fiber degenerates
+            into two crossing lines, a singular point. Singular learning theory measures such points by the real log
+            canonical threshold.
+          </figcaption>
+        </figure>
+      </div>
 
       <!-- Theme 1: Optimal transport -->
       <article class="theme" id="ot">

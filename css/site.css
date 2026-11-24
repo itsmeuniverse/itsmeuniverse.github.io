@@ -275,3 +275,16 @@ h3.sub { font-family: var(--serif); font-size: 21px; font-weight: 600; margin: 3
 }
 .footer a { color: var(--faint); }
 .footer a:hover { color: var(--text); }
+
+/* ---------- research intro with hero figure ---------- */
+.bio-lead { font-size: 22px; line-height: 1.4; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px !important; }
+.research-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 44px; align-items: start; padding-bottom: 12px; }
+.research-intro .lede { margin: 0; }
+.fig-hero { position: relative; }
+.fig-hero canvas { aspect-ratio: 5 / 4; }
+.chip {
+  position: absolute; top: 24px; left: 24px; z-index: 1;
+  font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px 8px;
+}
+@media (max-width: 860px) { .research-intro { grid-template-columns: 1fr; gap: 24px; } }
