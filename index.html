@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css?v=202611241038">
+  <link rel="stylesheet" href="css/site.css?v=202611241110">
   <script>
     // Apply the saved theme before first paint to avoid a flash.
     (function () {
@@ -51,7 +51,7 @@
     <!-- ============================== INTRO ============================== -->
     <section class="intro" aria-label="About">
       <div class="intro-text">
-        <h1>Woojoo Na</h1>
+        <h1 class="sr-only">Woojoo Na</h1>
         <p class="tagline">A geometer, working across machine learning</p>
         <p class="bio-lead">
           I am a mathematician working on machine learning.
@@ -92,12 +92,21 @@
     <section id="research" class="block">
       <h2>Research</h2>
       <div class="research-intro">
+        <div>
+        <p class="research-title">Geometry and Algebra of Learning</p>
         <p class="lede">
           My research answers foundational questions about neural networks and generative models with theorems,
           built from structures that already exist in geometry, algebraic geometry and topology. Selected papers are
           listed under each research direction below. A full list is on
           <a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ">Google Scholar</a>.
         </p>
+        <ol class="kw-index">
+          <li><a href="#ot"><span class="num">01</span>Geometry of Optimal Transport</a></li>
+          <li><a href="#poly"><span class="num">02</span>Algebraic Geometry of Neural Networks</a></li>
+          <li><a href="#moe"><span class="num">03</span>Theory of Mixture-of-Experts Routing</a></li>
+          <li><a href="#gen"><span class="num">04</span>Theory of One-Step Generation</a></li>
+        </ol>
+        </div>
         <figure class="fig fig-hero" data-fig="fiber">
           <span class="chip">Fibers &amp; singularities</span>
           <canvas aria-label="Animation: gradient flow on the loss surface (ab minus c) squared. Particles slide onto the curve ab = c, which degenerates into two crossing lines as c goes to zero." role="img"></canvas>
@@ -117,7 +126,8 @@
       <!-- Theme 1: Optimal transport -->
       <article class="theme" id="ot">
         <div class="theme-text">
-          <h3><span class="num">01</span>Optimal transport on the space of covariances</h3>
+          <h3><span class="num">01</span>Geometry of Optimal Transport</h3>
+          <p class="focus">Optimal transport on the space of covariance matrices</p>
           <p>
             Gaussian distributions with covariances <i>A</i> and <i>B</i> sit in a curved space: the
             Bures&ndash;Wasserstein geometry, where the distance is the optimal transport (W<sub>2</sub>) cost between them.
@@ -152,10 +162,42 @@
         </figure>
       </article>
 
-      <!-- Theme 2: MoE routing -->
+      <!-- Theme 2: Algebraic geometry of neural networks (manuscript in preparation: topic only) -->
+      <article class="theme" id="poly">
+        <div class="theme-text">
+          <h3><span class="num">02</span>Algebraic Geometry of Neural Networks</h3>
+          <p class="focus">Identifiability of deep polynomial networks</p>
+          <p>
+            A network whose activations are powers <i>z</i> &#8614; <i>z<sup>r</sup></i> computes a polynomial, so
+            the map from weights to functions is a polynomial map and the functions it can reach form an algebraic
+            variety. Permuting and rescaling hidden neurons never changes the function. Identifiability asks whether
+            these are the only ways to do so: is each fiber of the map a single symmetry orbit, and if not, how many
+            orbits does it contain? I study these fibers for deep networks with classical algebraic geometry,
+            starting from Waring decompositions, which write a polynomial as a sum of powers of linear forms.
+          </p>
+          <p class="status">Manuscript in preparation.</p>
+        </div>
+        <figure class="fig" data-fig="waring">
+          <canvas aria-label="Animation: a binary cubic form drawn in polar coordinates as the sum of two cubes of linear forms; the two neuron directions rotate and periodically align." role="img"></canvas>
+          <div class="fig-controls">
+            <label>&delta; <input type="range" min="0" max="1" step="0.001" value="1" data-role="t" aria-label="Angle between the two neurons"></label>
+            <button type="button" data-role="play" aria-label="Pause animation">Pause</button>
+          </div>
+          <figcaption>
+            The smallest case: two inputs, two hidden neurons with cubic activation, one output. The network computes a
+            binary cubic form (thick curve, drawn in polar coordinates around the dashed zero circle) as a sum of two
+            cubes of linear forms (thin curves). By Sylvester&rsquo;s theorem a generic binary cubic has exactly one
+            such decomposition, so the weights are determined up to symmetry. As the neurons align (&delta; &rarr; 0)
+            the fiber becomes a curve and identifiability fails.
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- Theme 3: MoE routing -->
       <article class="theme" id="moe">
         <div class="theme-text">
-          <h3><span class="num">02</span>Routing in mixture-of-experts language models</h3>
+          <h3><span class="num">03</span>Theory of Mixture-of-Experts Routing</h3>
+          <p class="focus">Optimal and balanced routing in mixture-of-experts language models</p>
           <p>
             In a mixture-of-experts model, each token's route is a point in a simplex of expert patterns. When is a
             routing rule optimal, and how can every device stay balanced on every batch without retraining or dropping
@@ -178,10 +220,11 @@
         </figure>
       </article>
 
-      <!-- Theme 3: Generative modeling -->
+      <!-- Theme 4: Generative modeling -->
       <article class="theme" id="gen">
         <div class="theme-text">
-          <h3><span class="num">03</span>One-step generative modeling</h3>
+          <h3><span class="num">04</span>Theory of One-Step Generation</h3>
+          <p class="focus">Noise-level design for consistency models</p>
           <p>
             Consistency models learn to jump from pure noise to data in a single step. With a fixed training budget,
             which noise levels should that budget be spent on? I relate the training noise-level distribution to the
@@ -356,6 +399,6 @@
     <a href="#" class="totop">Back to top &uarr;</a>
   </footer>
 
-  <script src="js/figures.js?v=202611241038" defer></script>
+  <script src="js/figures.js?v=202611241100" defer></script>
 </body>
 </html>

@@ -288,3 +288,19 @@ h3.sub { font-family: var(--serif); font-size: 21px; font-weight: 600; margin: 3
   color: var(--accent); background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px 8px;
 }
 @media (max-width: 860px) { .research-intro { grid-template-columns: 1fr; gap: 24px; } }
+
+/* ---------- research keywords ---------- */
+.research-title { font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; color: var(--accent); margin: 0 0 14px; }
+.theme .focus { font-family: var(--sans); font-size: 14px; color: var(--muted); margin: -6px 0 14px; }
+.kw-index { list-style: none; padding: 0; margin: 26px 0 0; border-top: 1px solid var(--rule); }
+.kw-index li { border-bottom: 1px solid var(--rule); }
+.kw-index a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--text); text-decoration: none; }
+.kw-index a:hover { color: var(--accent); }
+.kw-index .num { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--accent); min-width: 22px; }
+@media (max-width: 600px) { .research-title { font-size: 25px; } .kw-index a { font-size: 16.5px; } }
+
+/* ---------- intro without a repeated name (the top bar already shows it) ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.intro .tagline { margin: 6px 0 14px; }
+.intro .bio-lead { font-family: var(--serif); font-size: 32px; line-height: 1.22; letter-spacing: -0.02em; margin-bottom: 20px !important; max-width: 20em; text-wrap: balance; }
+@media (max-width: 860px) { .intro .bio-lead { font-size: 27px; } }
