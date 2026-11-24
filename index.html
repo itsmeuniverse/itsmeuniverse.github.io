@@ -1,227 +1,343 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Woojoo Na</title>
   <meta name="author" content="Woojoo Na">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <meta name="description" content="Woojoo Na, PhD student at Northeastern University. Trained as a pure mathematician at Oxford; geometric and mathematical foundations of machine learning: optimal transport, mixture-of-experts routing, and one-step generative modeling.">
+  <meta property="og:title" content="Woojoo Na">
+  <meta property="og:description" content="Geometric and mathematical foundations of machine learning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itsmeuniverse.github.io/">
+  <meta property="og:image" content="https://itsmeuniverse.github.io/images/woojoo.png">
   <link rel="icon" type="image/png" href="images/oxfordlogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Woojoo Na</name>
-              </p>
-              <p>
-                I am a PhD student in Electrical and Computer Engineering at <a href="https://www.northeastern.edu/" target="_blank">Northeastern University</a>, advised by <a href="https://mllabneu.github.io/" target="_blank">Professor Jennifer Dy</a>.
-                I trained as a pure mathematician at <a href="https://www.ox.ac.uk/" target="_blank">Oxford</a>, and I approach machine learning through the lens of geometry and topology: many hard problems become tractable once you find the right space, the right shape of the feasible set, or the right path. I use that structure to design algorithms with guarantees, across several areas of machine learning:
-              </p>
-              <ul style="margin-top:0;padding-left:20px">
-                <li><strong>Large language model inference.</strong> Routing in mixture-of-experts models, where each token's route is a point in a simplex of expert patterns. When is a routing rule optimal, and how can every device stay balanced on every batch without retraining or dropping tokens? I study this in theory and on open MoE models with recorded user-conversation traffic.</li>
-                <li><strong>Optimal transport.</strong> Monotone, descent-guaranteed updates on the Bures&ndash;Wasserstein geometry of covariance matrices (<a href="https://arxiv.org/abs/2606.30523" target="_blank">ITSPACE</a>, ICML 2026).</li>
-                <li><strong>Generative modeling.</strong> One-step generation by consistency training: which noise levels a fixed training budget should be spent on, and why a small loss can still leave a poor generator.</li>
-              </ul>
-              <p>
-                At Oxford, I did undergraduate research with <a href="https://scholar.google.com/citations?user=QS_V3vIAAAAJ&hl=en" target="_blank">Professor Christophe Petit</a>, <a href="https://scholar.google.com/citations?user=arjucpEAAAAJ" target="_blank">Professor Thomas Lukasiewicz</a>, and <a href="https://scholar.google.com/citations?user=eithlpAAAAAJ" target="_blank">Dr. Andrey Kormilitzin</a>.
-              </p>
-              <p style="text-align:center">
-                <a href="mailto:na.w@northeastern.edu">Email</a> &nbsp/&nbsp
-                <a href="resume/CV_Woojoo_Na.pdf" target="_blank">CV</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ&hl=ko" target="_blank"> Google Scholar </a> &nbsp/&nbsp
-                <a href="https://github.com/itsmeuniverse" target="_blank"> GitHub </a>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <img src="images/woojoo.png" width="120" style="border-radius:50%" class="profile-image">
-            </td>
-          </tr>
-        </tbody>
-        </table>
+  <a class="skip" href="#main">Skip to content</a>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>News</heading>
-              <p>
-                <ul>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">07/2026: Presented <strong>ITSPACE</strong> as a poster at ICML 2026 in Seoul. <a href="https://arxiv.org/abs/2606.30523" target="_blank">[arXiv]</a></li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">05/2026: <strong>ITSPACE</strong> was accepted at ICML 2026! <a href="https://openreview.net/forum?id=BdCjuNqZst" target="_blank">[OpenReview]</a></li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">09/2024: Joined <a href="https://www.northeastern.edu/" target="_blank">Northeastern University</a> as a PhD student.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">07/2023: My paper, <a href="https://arxiv.org/abs/2307.04870" target="_blank">"RACH-Space: Reconstructing Adaptive Convex Hull Space with Applications in Weak Supervision"</a>, is now available.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">08/2021: Discharged from the Korean Army as Sergeant after completing 18 months of service.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">02/2020: Joined the Korean Army to serve as FDC in artillery.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">01/2020: I presented our work on cryptography at <a href="https://cms.ewha.ac.kr/user/indexSub.action?codyMenuSeq=9524012&siteId=hsl&menuUIType=top" target="_blank">CMS-Ewha Womans University</a>.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">12/2019: We presented at <a href="https://malb.io/imacc2019/" target="_blank">17th IMA International Conference on Cryptography and Coding</a>.</li>
-                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">07/2019: Graduated from <a href="https://www.ox.ac.uk/" target="_blank">the University of Oxford</a> with a B.A. (Hons) in Mathematics.</li>
-                </ul>
-              </p>
-            </td>
-          </tr>
-        </tbody>
-        </table>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#">Woojoo Na</a>
+      <nav aria-label="Sections">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">News</a>
+        <a href="resume/CV_Woojoo_Na.pdf">CV</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <heading>Selected Publications</heading>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <main id="main" class="wrap">
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/itspace.png" alt="ITSPACE" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>ITSPACE: Monotone Gaussian Optimal Transport Updates</papertitle>
-              <br>
-              <strong>Woojoo Na</strong>, Jennifer Dy<br>
-              International Conference on Machine Learning (ICML), 2026<br>
-              <a href="https://openreview.net/forum?id=BdCjuNqZst" target="_blank">OpenReview</a> / <a href="https://arxiv.org/abs/2606.30523" target="_blank">arXiv</a>
-              <p></p>
-              <p>
-                A proximal majorization&ndash;minimization method for the exact Bures&ndash;Wasserstein (Gaussian W<sub>2</sub>) objective on covariances, with closed-form updates in a square-root factorization. Each iteration is guaranteed to decrease the objective in exact arithmetic, with a certificate-gap bound under inexact polar computations; the updates preserve positive semidefiniteness and support rank-restricted factors. On real-world covariance-alignment benchmarks, ITSPACE reaches low-BW-gap solutions substantially faster than BW gradient descent and sample-OT baselines.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/convexpeel.png" alt="RACH-Space" width="160" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>RACH-Space: Reconstructing Adaptive Convex Hull Space with Applications in Weak Supervision</papertitle>
-              <br>
-              <strong>Woojoo Na</strong>, Abiy Tasissa<br>
-              arXiv preprint, 2023<br>
-              <a href="https://arxiv.org/abs/2307.04870" target="_blank">arXiv</a>
-              <p></p>
-              <p>
-                An algorithm for labeling unlabeled data in weakly supervised learning from incomplete, noisy information about the labels, based on reconstructing an adaptive convex hull. It reported state-of-the-art performance on the weak-supervision benchmark tasks considered at the time.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
+    <!-- ============================== INTRO ============================== -->
+    <section class="intro" aria-label="About">
+      <div class="intro-text">
+        <h1>Woojoo Na</h1>
+        <p class="tagline">Geometry for machine learning</p>
+        <p>
+          I am a PhD student in Electrical and Computer Engineering at
+          <a href="https://www.northeastern.edu/">Northeastern University</a>, advised by
+          <a href="https://mllabneu.github.io/">Professor Jennifer Dy</a>.
+        </p>
+        <p>
+          I trained as a pure mathematician at <a href="https://www.ox.ac.uk/">Oxford</a>, and I approach machine learning
+          through the lens of geometry and topology: many hard problems become tractable once you find the right space,
+          the right shape of the feasible set, or the right path. I use that structure to design algorithms with
+          guarantees, across several areas of machine learning.
+        </p>
+        <p>
+          At Oxford, I did undergraduate research with
+          <a href="https://scholar.google.com/citations?user=QS_V3vIAAAAJ&amp;hl=en">Professor Christophe Petit</a>,
+          <a href="https://scholar.google.com/citations?user=arjucpEAAAAJ">Professor Thomas Lukasiewicz</a>, and
+          <a href="https://scholar.google.com/citations?user=eithlpAAAAAJ">Dr. Andrey Kormilitzin</a>.
+        </p>
+        <ul class="contact" aria-label="Links">
+          <li><a href="mailto:na.w@northeastern.edu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>Email</a></li>
+          <li><a href="resume/CV_Woojoo_Na.pdf">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>CV</a></li>
+          <li><a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5L12 15z"/><path d="M6 11.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.3"/></svg>Google Scholar</a></li>
+          <li><a href="https://github.com/itsmeuniverse">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></li>
+        </ul>
+      </div>
+      <figure class="portrait">
+        <img src="images/woojoo.png" alt="Portrait of Woojoo Na" width="220" height="234">
+      </figure>
+    </section>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <heading>Earlier Projects</heading>
-                <p style="margin-top:8px">Undergraduate and master's-level research and course projects, kept here for the record.</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- ============================== RESEARCH ============================== -->
+    <section id="research" class="block">
+      <h2>Research</h2>
+      <p class="lede">
+        My research is on the geometric and mathematical foundations of machine learning. Three current threads:
+      </p>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/trapdoor.png" alt="Trapdoor attacks" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>Trapdoor attacks on Cayley hash function parameters</papertitle>
-              <br>
-              Alexander Allin, <strong>Woojoo Na</strong>, Christophe Petit<br>
-              17th IMA International Conference on Cryptography and Coding (IMACC 2019) &middot; <a href="https://malb.io/imacc2019/" target="_blank">conference</a>
-              <p></p>
-              <p>
-                Using group-theoretic properties of Cayley hash functions to construct trapdoor attacks on their parameters. Undergraduate research at the Oxford Mathematical Institute.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/permutationgroup.png" alt="Permutation group" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>P2-equivariant convolutional networks on MNIST</papertitle>
-              <br>
-              Machine learning course project, 2022
-              <p></p>
-              <p>
-                Studied the framework of group-equivariant CNNs, its applications and limitations, with experiments on MNIST.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/fakenewsdetection.jpeg" alt="Fake news detection" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>Fake news detection and its impact on financial markets</papertitle>
-              <br>
-              Brigade Commander Award, Republic of Korea Army start-up competition, 2021
-              <p></p>
-              <p>
-                An online platform for fake-news detection with neural models, aimed at small investors exposed to fake news.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/transformer.png" alt="Transformer" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>Conceptual space of a transformer encoder</papertitle>
-              <br>
-              Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2019
-              <p></p>
-              <p>
-                Explored the relationship between transformer encoder word embeddings and conceptual-space geometry.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/further.png" alt="n2c2 challenge" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>2018 n2c2 challenge: adverse drug events and medication extraction</papertitle>
-              <br>
-              <strong>Woojoo Na</strong>, Andrey Kormilitzin &middot; undergraduate poster session, Oxford Mathematical Institute, 2018 &middot; <a href="https://n2c2.dbmi.hms.harvard.edu/" target="_blank">n2c2</a>
-              <p></p>
-              <p>
-                CNN and character-level word-embedding models for concept and relation extraction from electronic health records.
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/knowledge_graph.png" alt="Knowledge graph" width="110" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <papertitle>Knowledge graph completion</papertitle>
-              <br>
-              Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2018
-              <p></p>
-              <p>
-                Knowledge graph completion for ontology reasoning.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
+      <!-- Theme 1: Optimal transport -->
+      <article class="theme" id="ot">
+        <div class="theme-text">
+          <h3><span class="num">01</span>Optimal transport on the space of covariances</h3>
+          <p>
+            Gaussian distributions with covariances <i>A</i> and <i>B</i> sit in a curved space: the
+            Bures&ndash;Wasserstein geometry, where the distance is the optimal transport (W<sub>2</sub>) cost between them.
+            I design monotone, descent-guaranteed updates on this geometry. In <strong>ITSPACE</strong>, proximal
+            majorization&ndash;minimization on the exact Bures&ndash;Wasserstein objective gives closed-form updates
+            in a square-root factorization, with sufficient decrease at every iteration in exact arithmetic and a
+            certificate-gap bound when the polar computations are inexact.
+          </p>
+          <ul class="pubs compact">
+            <li>
+              <a class="ptitle" href="https://arxiv.org/abs/2606.30523">ITSPACE: Monotone Gaussian Optimal Transport Updates</a>
+              <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
+              <span class="venue">ICML 2026</span>
+            </li>
+          </ul>
+        </div>
+        <figure class="fig" data-fig="bw">
+          <canvas aria-label="Animation: two covariance ellipses connected by the Bures–Wasserstein geodesic, compared with straight-line interpolation of the matrices." role="img"></canvas>
+          <div class="fig-controls">
+            <label>t <input type="range" min="0" max="1" step="0.001" value="0" data-role="t" aria-label="Interpolation time t"></label>
+            <button type="button" data-role="play" aria-label="Pause animation">Pause</button>
+            <button type="button" data-role="shuffle" aria-label="New random endpoints">New pair</button>
+          </div>
+          <figcaption>
+            <span class="key key-solid"></span>Bures&ndash;Wasserstein geodesic
+            &Sigma;<sub>t</sub> = ((1&minus;t)I + tT) A ((1&minus;t)I + tT), with T the optimal transport map from A to B.
+            <span class="key key-dash"></span>Straight line (1&minus;t)A + tB, for contrast.
+            Computed live in your browser.
+          </figcaption>
+        </figure>
+      </article>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-              Source code credit to <a href="https://jonbarron.info/" target="_blank">Dr. Barron</a></p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </tbody></table>
+      <!-- Theme 2: MoE routing -->
+      <article class="theme" id="moe">
+        <div class="theme-text">
+          <h3><span class="num">02</span>Routing in mixture-of-experts language models</h3>
+          <p>
+            In a mixture-of-experts model, each token's route is a point in a simplex of expert patterns. When is a
+            routing rule optimal, and how can every device stay balanced on every batch without retraining or dropping
+            tokens? I study this in theory, through prices on groups of experts that move tokens between patterns,
+            and on open MoE models with recorded user-conversation traffic.
+          </p>
+          <p class="status">Manuscript under review.</p>
+        </div>
+        <figure class="fig" data-fig="moe">
+          <canvas aria-label="Animation: tokens assigned to four expert groups; group prices rise on overloaded groups until every group meets its target load." role="img"></canvas>
+          <div class="fig-controls">
+            <button type="button" data-role="play" aria-label="Pause animation">Pause</button>
+            <button type="button" data-role="shuffle" aria-label="New random batch">New batch</button>
+          </div>
+          <figcaption>
+            A toy batch of tokens, each sent to its highest-scoring group. Overloaded groups raise their price, which
+            moves tokens with the smallest score margin elsewhere, until loads meet the target (dashed line).
+            A schematic of price-based balancing, not the paper's algorithm.
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- Theme 3: Generative modeling -->
+      <article class="theme" id="gen">
+        <div class="theme-text">
+          <h3><span class="num">03</span>One-step generative modeling</h3>
+          <p>
+            Consistency models learn to jump from pure noise to data in a single step. With a fixed training budget,
+            which noise levels should that budget be spent on? I relate the training noise-level distribution to the
+            averaged loss and to the one-step generator's error, and show why a small loss can still leave a poor
+            generator.
+          </p>
+          <p class="status">Manuscript under review.</p>
+        </div>
+        <figure class="fig" data-fig="noise">
+          <canvas aria-label="Animation: a two-dimensional data distribution blurred by Gaussian noise of increasing level sigma, and the one-step jump from the highest noise level back to data." role="img"></canvas>
+          <div class="fig-controls">
+            <label>&sigma; <input type="range" min="0" max="1" step="0.001" value="0" data-role="t" aria-label="Noise level"></label>
+            <button type="button" data-role="play" aria-label="Pause animation">Pause</button>
+          </div>
+          <figcaption>
+            Data x and its noised versions x + &sigma;z along the noise schedule. A one-step generator has to undo the
+            whole path at once; the training distribution over &sigma; decides where it learns to do so.
+          </figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- ============================== PUBLICATIONS ============================== -->
+    <section id="publications" class="block">
+      <h2>Publications</h2>
+
+      <ul class="pubs full">
+        <li class="pub">
+          <img class="thumb" src="images/itspace.png" alt="" loading="lazy">
+          <div>
+            <a class="ptitle" href="https://arxiv.org/abs/2606.30523">ITSPACE: Monotone Gaussian Optimal Transport Updates</a>
+            <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
+            <span class="venue">International Conference on Machine Learning (ICML), 2026</span>
+            <span class="links">
+              <a href="https://openreview.net/forum?id=BdCjuNqZst">OpenReview</a>
+              <a href="https://arxiv.org/abs/2606.30523">arXiv</a>
+            </span>
+            <details>
+              <summary>Summary</summary>
+              <p>
+                A proximal majorization&ndash;minimization method for the exact Bures&ndash;Wasserstein (Gaussian W<sub>2</sub>)
+                objective on covariances, with closed-form updates in a square-root factorization. Each iteration is
+                guaranteed to decrease the objective in exact arithmetic, with a certificate-gap bound under inexact
+                polar computations; the updates preserve positive semidefiniteness and support rank-restricted factors.
+                On real-world covariance-alignment benchmarks, ITSPACE reaches low-BW-gap solutions substantially faster
+                than BW gradient descent and sample-OT baselines.
+              </p>
+            </details>
+          </div>
+        </li>
+        <li class="pub">
+          <img class="thumb" src="images/convexpeel.png" alt="" loading="lazy">
+          <div>
+            <a class="ptitle" href="https://arxiv.org/abs/2307.04870">RACH-Space: Reconstructing Adaptive Convex Hull Space with Applications in Weak Supervision</a>
+            <span class="authors"><b>Woojoo Na</b>, Abiy Tasissa</span>
+            <span class="venue">arXiv preprint, 2023</span>
+            <span class="links">
+              <a href="https://arxiv.org/abs/2307.04870">arXiv</a>
+            </span>
+            <details>
+              <summary>Summary</summary>
+              <p>
+                An algorithm for labeling unlabeled data in weakly supervised learning from incomplete, noisy
+                information about the labels, based on reconstructing an adaptive convex hull. It reported
+                state-of-the-art performance on the weak-supervision benchmark tasks considered at the time.
+              </p>
+            </details>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="sub">Earlier work</h3>
+      <p class="muted">Undergraduate and early graduate research and projects, kept here for the record.</p>
+      <ul class="earlier">
+        <li>
+          <img src="images/trapdoor.png" alt="" loading="lazy">
+          <div>
+            <span class="etitle">Trapdoor attacks on Cayley hash function parameters</span>
+            <span class="emeta">Alexander Allin, <b>Woojoo Na</b>, Christophe Petit &middot; presented at <a href="https://malb.io/imacc2019/">IMACC 2019</a></span>
+            <span class="edesc">Group-theoretic trapdoor attacks on Cayley hash function parameters. Undergraduate research at the Oxford Mathematical Institute.</span>
+          </div>
+        </li>
+        <li>
+          <img src="images/transformer.png" alt="" loading="lazy">
+          <div>
+            <span class="etitle">Conceptual space of a transformer encoder</span>
+            <span class="emeta">Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2019</span>
+            <span class="edesc">The relationship between transformer encoder word embeddings and conceptual-space geometry.</span>
+          </div>
+        </li>
+        <li>
+          <img src="images/knowledge_graph.png" alt="" loading="lazy">
+          <div>
+            <span class="etitle">Knowledge graph completion</span>
+            <span class="emeta">Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2018</span>
+            <span class="edesc">Knowledge graph completion for ontology reasoning.</span>
+          </div>
+        </li>
+        <li>
+          <img src="images/further.png" alt="" loading="lazy">
+          <div>
+            <span class="etitle">2018 n2c2 challenge: adverse drug events and medication extraction</span>
+            <span class="emeta"><b>Woojoo Na</b>, Andrey Kormilitzin &middot; undergraduate poster session, Oxford Mathematical Institute, 2018 &middot; <a href="https://n2c2.dbmi.hms.harvard.edu/">n2c2</a></span>
+            <span class="edesc">CNN and character-level word-embedding models for concept and relation extraction from electronic health records.</span>
+          </div>
+        </li>
+        <li>
+          <img src="images/permutationgroup.png" alt="" loading="lazy">
+          <div>
+            <span class="etitle">P2-equivariant convolutional networks on MNIST</span>
+            <span class="emeta">Machine learning course project, 2022</span>
+            <span class="edesc">The framework of group-equivariant CNNs, its applications and limitations, with experiments on MNIST.</span>
+          </div>
+        </li>
+        <li>
+          <img src="images/fakenewsdetection.jpeg" alt="" loading="lazy">
+          <div>
+            <span class="etitle">Fake news detection and its impact on financial markets</span>
+            <span class="emeta">Brigade Commander Award, Republic of Korea Army start-up competition, 2021</span>
+            <span class="edesc">An online platform for fake-news detection with neural models, aimed at small investors exposed to fake news.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================== NEWS + TALKS ============================== -->
+    <div class="two-col">
+      <section id="news" class="block">
+        <h2>News</h2>
+        <ul class="news">
+          <li><time>Jul 2026</time><span>Presented <b>ITSPACE</b> as a poster at ICML 2026 in Seoul. <a href="https://arxiv.org/abs/2606.30523">arXiv</a></span></li>
+          <li><time>May 2026</time><span><b>ITSPACE</b> was accepted at ICML 2026. <a href="https://openreview.net/forum?id=BdCjuNqZst">OpenReview</a></span></li>
+          <li><time>Sep 2024</time><span>Joined <a href="https://www.northeastern.edu/">Northeastern University</a> as a PhD student.</span></li>
+          <li><time>Jul 2023</time><span><a href="https://arxiv.org/abs/2307.04870">RACH-Space</a> is now on arXiv.</span></li>
+          <li><time>Aug 2021</time><span>Discharged from the Korean Army as Sergeant after 18 months of service.</span></li>
+          <li><time>Feb 2020</time><span>Joined the Korean Army to serve as a fire direction operator in artillery.</span></li>
+          <li><time>Jan 2020</time><span>Presented our cryptography work at <a href="https://cms.ewha.ac.kr/user/indexSub.action?codyMenuSeq=9524012&amp;siteId=hsl&amp;menuUIType=top">Ewha Womans University</a>.</span></li>
+          <li><time>Dec 2019</time><span>Presented at the <a href="https://malb.io/imacc2019/">17th IMA International Conference on Cryptography and Coding</a>.</span></li>
+          <li><time>Jul 2019</time><span>Graduated from <a href="https://www.ox.ac.uk/">the University of Oxford</a> with a B.A. (Hons) in Mathematics.</span></li>
+        </ul>
+      </section>
+
+      <section id="talks" class="block">
+        <h2>Talks</h2>
+        <ul class="talks">
+          <li>
+            <span class="ttitle">ITSPACE: Monotone Gaussian Optimal Transport Updates</span>
+            <span class="tmeta">Poster, ICML 2026, Seoul &middot; Jul 2026</span>
+          </li>
+          <li>
+            <span class="ttitle">Security of Cayley Hash Functions</span>
+            <span class="tmeta">Invited speaker, Ewha Womans University Cryptography and Mathematics Seminar &middot; Jan 2020</span>
+          </li>
+          <li>
+            <span class="ttitle">Trapdoor attacks on Cayley hash function parameters</span>
+            <span class="tmeta">17th IMA International Conference on Cryptography and Coding &middot; Dec 2019</span>
+          </li>
+        </ul>
+
+        <h2 class="mt">Education</h2>
+        <ul class="talks">
+          <li>
+            <span class="ttitle">Ph.D. in Electrical and Computer Engineering</span>
+            <span class="tmeta">Northeastern University &middot; 2024&ndash;present</span>
+          </li>
+          <li>
+            <span class="ttitle">B.A. (Hons) in Mathematics</span>
+            <span class="tmeta">University of Oxford, Lady Margaret Hall &middot; 2016&ndash;2019</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap footer">
+    <span>&copy; 2026 Woojoo Na</span>
+    <a href="#" class="totop">Back to top &uarr;</a>
+  </footer>
+
+  <script src="js/figures.js" defer></script>
 </body>
-
 </html>
