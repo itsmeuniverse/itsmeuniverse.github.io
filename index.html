@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/site.css?v=202611241038">
   <script>
     // Apply the saved theme before first paint to avoid a flash.
     (function () {
@@ -37,7 +37,7 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#news">News</a>
-        <a href="resume/CV_Woojoo_Na.pdf">CV</a>
+        <a href="resume/CV_Woojoo_Na.pdf?v=202611241039">CV</a>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
@@ -75,7 +75,7 @@
         <ul class="contact" aria-label="Links">
           <li><a href="mailto:na.w@northeastern.edu">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>Email</a></li>
-          <li><a href="resume/CV_Woojoo_Na.pdf">
+          <li><a href="resume/CV_Woojoo_Na.pdf?v=202611241039">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>CV</a></li>
           <li><a href="https://scholar.google.com/citations?user=VjtokXUAAAAJ">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5L12 15z"/><path d="M6 11.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.3"/></svg>Google Scholar</a></li>
@@ -162,14 +162,7 @@
             tokens? I study this in theory, through prices on groups of experts that move tokens between patterns,
             and on open MoE models with recorded user-conversation traffic.
           </p>
-          <ul class="pubs compact">
-            <li>
-              <span class="ptitle">Optimality and Load Balance of Group-Limited Routing in Mixture-of-Experts</span>
-              <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
-              <span class="venue">Under review, ICLR 2027</span>
-              <span class="result">An LP-pricing router with joint rounding keeps every group within 2K&minus;2 assignments of its target, with routing score at least the LP bound, no retraining and no dropped tokens.</span>
-            </li>
-          </ul>
+          <p class="status">Manuscript under review.</p>
         </div>
         <figure class="fig" data-fig="moe">
           <canvas aria-label="Animation: tokens assigned to four expert groups; group prices rise on overloaded groups until every group meets its target load." role="img"></canvas>
@@ -195,14 +188,7 @@
             averaged loss and to the one-step generator's error, and show why a small loss can still leave a poor
             generator.
           </p>
-          <ul class="pubs compact">
-            <li>
-              <span class="ptitle">Small Loss, Poor Generator: Where Consistency Tuning Should Train for One-Step Generation</span>
-              <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
-              <span class="venue">Under review, ICLR 2027</span>
-              <span class="result">A small loss does not certify the one-step generator. The resulting noise sampling improves Easy Consistency Tuning at small budgets (CIFAR-10, ImageNet-64).</span>
-            </li>
-          </ul>
+          <p class="status">Manuscript under review.</p>
         </div>
         <figure class="fig" data-fig="noise">
           <canvas aria-label="Animation: a two-dimensional data distribution blurred by Gaussian noise of increasing level sigma, and the one-step jump from the highest noise level back to data." role="img"></canvas>
@@ -263,25 +249,11 @@
         </li>
       </ul>
 
-      <h3 class="sub">Under review</h3>
-      <ul class="pubs review">
-        <li>
-          <span class="ptitle">Optimality and Load Balance of Group-Limited Routing in Mixture-of-Experts</span>
-          <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
-          <span class="venue">Under review at the International Conference on Learning Representations (ICLR), 2027</span>
-        </li>
-        <li>
-          <span class="ptitle">Small Loss, Poor Generator: Where Consistency Tuning Should Train for One-Step Generation</span>
-          <span class="authors"><b>Woojoo Na</b>, Jennifer Dy</span>
-          <span class="venue">Under review at the International Conference on Learning Representations (ICLR), 2027</span>
-        </li>
-      </ul>
-
       <h3 class="sub">Earlier work</h3>
       <p class="muted">Undergraduate and early graduate research and projects, kept here for the record.</p>
       <ul class="earlier">
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Cayley graph with a highlighted walk"><line class="d-a" x1="50.0" y1="16.0" x2="79.4" y2="33.0"/><line class="d-a" x1="79.4" y1="33.0" x2="79.4" y2="67.0"/><line class="d-a" x1="79.4" y1="67.0" x2="50.0" y2="84.0"/><line class="d-a" x1="50.0" y1="84.0" x2="20.6" y2="67.0"/><line class="d-a" x1="20.6" y1="67.0" x2="20.6" y2="33.0"/><line class="d-a" x1="20.6" y1="33.0" x2="50.0" y2="16.0"/><line class="d-b" x1="50.0" y1="16.0" x2="50.0" y2="84.0"/><line class="d-b" x1="79.4" y1="33.0" x2="20.6" y2="67.0"/><line class="d-b" x1="79.4" y1="67.0" x2="20.6" y2="33.0"/><polyline class="d-walk" points="50.0,16.0 79.4,33.0 20.6,67.0 20.6,33.0"/><circle class="d-node" cx="50.0" cy="16.0" r="3.4"/><circle class="d-node" cx="79.4" cy="33.0" r="3.4"/><circle class="d-node" cx="79.4" cy="67.0" r="3.4"/><circle class="d-node" cx="50.0" cy="84.0" r="3.4"/><circle class="d-node" cx="20.6" cy="67.0" r="3.4"/><circle class="d-node" cx="20.6" cy="33.0" r="3.4"/><circle class="d-start" cx="50.0" cy="16.0" r="3.6"/></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Cayley graph with a highlighted walk"><line class="d-a" x1="50.0" y1="16.0" x2="79.4" y2="33.0"/><line class="d-a" x1="79.4" y1="33.0" x2="79.4" y2="67.0"/><line class="d-a" x1="79.4" y1="67.0" x2="50.0" y2="84.0"/><line class="d-a" x1="50.0" y1="84.0" x2="20.6" y2="67.0"/><line class="d-a" x1="20.6" y1="67.0" x2="20.6" y2="33.0"/><line class="d-a" x1="20.6" y1="33.0" x2="50.0" y2="16.0"/><line class="d-b" x1="50.0" y1="16.0" x2="50.0" y2="84.0"/><line class="d-b" x1="79.4" y1="33.0" x2="20.6" y2="67.0"/><line class="d-b" x1="79.4" y1="67.0" x2="20.6" y2="33.0"/><polyline class="d-walk" points="50.0,16.0 79.4,33.0 20.6,67.0 20.6,33.0"/><circle class="d-node" cx="50.0" cy="16.0" r="3.4"/><circle class="d-node" cx="79.4" cy="33.0" r="3.4"/><circle class="d-node" cx="79.4" cy="67.0" r="3.4"/><circle class="d-node" cx="50.0" cy="84.0" r="3.4"/><circle class="d-node" cx="20.6" cy="67.0" r="3.4"/><circle class="d-node" cx="20.6" cy="33.0" r="3.4"/><circle class="d-start" cx="50.0" cy="16.0" r="3.6"/></svg></figure>
           <div>
             <span class="etitle">Trapdoor attacks on Cayley hash function parameters</span>
             <span class="emeta">Alexander Allin, <b>Woojoo Na</b>, Christophe Petit &middot; presented at <a href="https://malb.io/imacc2019/">IMACC 2019</a></span>
@@ -289,7 +261,7 @@
           </div>
         </li>
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Square lattice; each cell holds a motif and its half-turn about the cell centre"><g class="d-grid"><line x1="14" y1="14" x2="14" y2="86"/><line x1="50" y1="14" x2="50" y2="86"/><line x1="86" y1="14" x2="86" y2="86"/><line x1="14" y1="14" x2="86" y2="14"/><line x1="14" y1="50" x2="86" y2="50"/><line x1="14" y1="86" x2="86" y2="86"/></g><path class="d-motif" d="M23 38 L23 23 L33 23 M23 30 L30 30"/><path class="d-motif2" d="M23 38 L23 23 L33 23 M23 30 L30 30" transform="rotate(180 32 32)"/><rect class="d-rot" x="30.2" y="30.2" width="3.6" height="3.6" transform="rotate(45 32 32)"/><path class="d-motif" d="M23 74 L23 59 L33 59 M23 66 L30 66"/><path class="d-motif2" d="M23 74 L23 59 L33 59 M23 66 L30 66" transform="rotate(180 32 68)"/><rect class="d-rot" x="30.2" y="66.2" width="3.6" height="3.6" transform="rotate(45 32 68)"/><path class="d-motif" d="M59 38 L59 23 L69 23 M59 30 L66 30"/><path class="d-motif2" d="M59 38 L59 23 L69 23 M59 30 L66 30" transform="rotate(180 68 32)"/><rect class="d-rot" x="66.2" y="30.2" width="3.6" height="3.6" transform="rotate(45 68 32)"/><path class="d-motif" d="M59 74 L59 59 L69 59 M59 66 L66 66"/><path class="d-motif2" d="M59 74 L59 59 L69 59 M59 66 L66 66" transform="rotate(180 68 68)"/><rect class="d-rot" x="66.2" y="66.2" width="3.6" height="3.6" transform="rotate(45 68 68)"/></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Square lattice; each cell holds a motif and its half-turn about the cell centre"><g class="d-grid"><line x1="14" y1="14" x2="14" y2="86"/><line x1="50" y1="14" x2="50" y2="86"/><line x1="86" y1="14" x2="86" y2="86"/><line x1="14" y1="14" x2="86" y2="14"/><line x1="14" y1="50" x2="86" y2="50"/><line x1="14" y1="86" x2="86" y2="86"/></g><path class="d-motif" d="M23 38 L23 23 L33 23 M23 30 L30 30"/><path class="d-motif2" d="M23 38 L23 23 L33 23 M23 30 L30 30" transform="rotate(180 32 32)"/><rect class="d-rot" x="30.2" y="30.2" width="3.6" height="3.6" transform="rotate(45 32 32)"/><path class="d-motif" d="M23 74 L23 59 L33 59 M23 66 L30 66"/><path class="d-motif2" d="M23 74 L23 59 L33 59 M23 66 L30 66" transform="rotate(180 32 68)"/><rect class="d-rot" x="30.2" y="66.2" width="3.6" height="3.6" transform="rotate(45 32 68)"/><path class="d-motif" d="M59 38 L59 23 L69 23 M59 30 L66 30"/><path class="d-motif2" d="M59 38 L59 23 L69 23 M59 30 L66 30" transform="rotate(180 68 32)"/><rect class="d-rot" x="66.2" y="30.2" width="3.6" height="3.6" transform="rotate(45 68 32)"/><path class="d-motif" d="M59 74 L59 59 L69 59 M59 66 L66 66"/><path class="d-motif2" d="M59 74 L59 59 L69 59 M59 66 L66 66" transform="rotate(180 68 68)"/><rect class="d-rot" x="66.2" y="66.2" width="3.6" height="3.6" transform="rotate(45 68 68)"/></svg></figure>
           <div>
             <span class="etitle">p2-equivariant convolutional networks on MNIST</span>
             <span class="emeta">Machine learning course project, 2022</span>
@@ -297,7 +269,7 @@
           </div>
         </li>
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Two convex regions of points in a quality space"><path class="d-axis" d="M14 12 L14 86 L90 86"/><polygon class="d-region" points="24,64 30,40 48,34 56,52 44,70"/><polygon class="d-region2" points="58,30 74,20 86,34 80,52 64,48"/><circle class="d-dot" cx="34" cy="50" r="2.3"/><circle class="d-dot" cx="40" cy="58" r="2.3"/><circle class="d-dot" cx="44" cy="44" r="2.3"/><circle class="d-dot" cx="36" cy="62" r="2.3"/><circle class="d-dot" cx="48" cy="52" r="2.3"/><circle class="d-dot2" cx="70" cy="30" r="2.3"/><circle class="d-dot2" cx="76" cy="38" r="2.3"/><circle class="d-dot2" cx="68" cy="42" r="2.3"/><circle class="d-dot2" cx="80" cy="44" r="2.3"/><circle class="d-out" cx="60" cy="72" r="2.6"/></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Two convex regions of points in a quality space"><path class="d-axis" d="M14 12 L14 86 L90 86"/><polygon class="d-region" points="24,64 30,40 48,34 56,52 44,70"/><polygon class="d-region2" points="58,30 74,20 86,34 80,52 64,48"/><circle class="d-dot" cx="34" cy="50" r="2.3"/><circle class="d-dot" cx="40" cy="58" r="2.3"/><circle class="d-dot" cx="44" cy="44" r="2.3"/><circle class="d-dot" cx="36" cy="62" r="2.3"/><circle class="d-dot" cx="48" cy="52" r="2.3"/><circle class="d-dot2" cx="70" cy="30" r="2.3"/><circle class="d-dot2" cx="76" cy="38" r="2.3"/><circle class="d-dot2" cx="68" cy="42" r="2.3"/><circle class="d-dot2" cx="80" cy="44" r="2.3"/><circle class="d-out" cx="60" cy="72" r="2.6"/></svg></figure>
           <div>
             <span class="etitle">Conceptual space of a transformer encoder</span>
             <span class="emeta">Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2019</span>
@@ -305,7 +277,7 @@
           </div>
         </li>
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Directed graph with one missing edge"><defs><marker id="ar" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path class="d-arrow" d="M0 0 L6 3 L0 6 z"/></marker></defs><line class="d-edge" x1="28.0" y1="25.5" x2="68.0" y2="22.5" marker-end="url(#ar)"/><line class="d-edge" x1="26.4" y1="30.1" x2="45.6" y2="47.9" marker-end="url(#ar)"/><line class="d-edge" x1="53.7" y1="47.3" x2="70.3" y2="26.7" marker-end="url(#ar)"/><line class="d-edge" x1="45.3" y1="55.7" x2="24.7" y2="72.3" marker-end="url(#ar)"/><line class="d-edge" x1="26.0" y1="75.8" x2="74.0" y2="74.2" marker-end="url(#ar)"/><line class="d-missing" x1="54.8" y1="55.5" x2="75.2" y2="70.5"/><circle class="d-node" cx="22" cy="26" r="4.6"/><circle class="d-node" cx="74" cy="22" r="4.6"/><circle class="d-node" cx="50" cy="52" r="4.6"/><circle class="d-node" cx="20" cy="76" r="4.6"/><circle class="d-node" cx="80" cy="74" r="4.6"/><text class="d-q" x="71" y="58">?</text></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Directed graph with one missing edge"><defs><marker id="ar" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path class="d-arrow" d="M0 0 L6 3 L0 6 z"/></marker></defs><line class="d-edge" x1="28.0" y1="25.5" x2="68.0" y2="22.5" marker-end="url(#ar)"/><line class="d-edge" x1="26.4" y1="30.1" x2="45.6" y2="47.9" marker-end="url(#ar)"/><line class="d-edge" x1="53.7" y1="47.3" x2="70.3" y2="26.7" marker-end="url(#ar)"/><line class="d-edge" x1="45.3" y1="55.7" x2="24.7" y2="72.3" marker-end="url(#ar)"/><line class="d-edge" x1="26.0" y1="75.8" x2="74.0" y2="74.2" marker-end="url(#ar)"/><line class="d-missing" x1="54.8" y1="55.5" x2="75.2" y2="70.5"/><circle class="d-node" cx="22" cy="26" r="4.6"/><circle class="d-node" cx="74" cy="22" r="4.6"/><circle class="d-node" cx="50" cy="52" r="4.6"/><circle class="d-node" cx="20" cy="76" r="4.6"/><circle class="d-node" cx="80" cy="74" r="4.6"/><text class="d-q" x="71" y="58">?</text></svg></figure>
           <div>
             <span class="etitle">Knowledge graph completion</span>
             <span class="emeta">Undergraduate summer research, Oxford Computer Science (Thomas Lukasiewicz), 2018</span>
@@ -313,7 +285,7 @@
           </div>
         </li>
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Tokens with two labelled spans joined by a relation arc"><defs><marker id="ar2" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path class="d-arrow2" d="M0 0 L6 3 L0 6 z"/></marker></defs><g><rect class="d-tok" x="8" y="58" width="12" height="12" rx="2"/><rect class="d-span" x="23" y="58" width="18" height="12" rx="2"/><rect class="d-tok" x="44" y="58" width="10" height="12" rx="2"/><rect class="d-tok" x="57" y="58" width="8" height="12" rx="2"/><rect class="d-span2" x="68" y="58" width="22" height="12" rx="2"/></g><path class="d-arc" d="M32 56 C 38 30, 72 30, 79 56" marker-end="url(#ar2)"/><text class="d-lab" x="32" y="82" text-anchor="middle">drug</text><text class="d-lab" x="79" y="82" text-anchor="middle">reaction</text></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Tokens with two labelled spans joined by a relation arc"><defs><marker id="ar2" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path class="d-arrow2" d="M0 0 L6 3 L0 6 z"/></marker></defs><g><rect class="d-tok" x="8" y="58" width="12" height="12" rx="2"/><rect class="d-span" x="23" y="58" width="18" height="12" rx="2"/><rect class="d-tok" x="44" y="58" width="10" height="12" rx="2"/><rect class="d-tok" x="57" y="58" width="8" height="12" rx="2"/><rect class="d-span2" x="68" y="58" width="22" height="12" rx="2"/></g><path class="d-arc" d="M32 56 C 38 30, 72 30, 79 56" marker-end="url(#ar2)"/><text class="d-lab" x="32" y="82" text-anchor="middle">drug</text><text class="d-lab" x="79" y="82" text-anchor="middle">reaction</text></svg></figure>
           <div>
             <span class="etitle">2018 n2c2 challenge: adverse drug events and medication extraction</span>
             <span class="emeta"><b>Woojoo Na</b>, Andrey Kormilitzin &middot; undergraduate poster session, Oxford Mathematical Institute, 2018 &middot; <a href="https://n2c2.dbmi.hms.harvard.edu/">n2c2</a></span>
@@ -321,7 +293,7 @@
           </div>
         </li>
         <li>
-          <figure class="dia-box"><svg class="dia" viewBox="0 0 100 100" role="img" aria-label="Two point clouds separated by a curved decision boundary"><path class="d-boundary" d="M30 10 C 46 34, 52 60, 74 92"/><circle class="d-dot" cx="18" cy="40" r="2.6"/><circle class="d-dot" cx="26" cy="56" r="2.6"/><circle class="d-dot" cx="14" cy="62" r="2.6"/><circle class="d-dot" cx="30" cy="74" r="2.6"/><circle class="d-dot" cx="22" cy="30" r="2.6"/><circle class="d-dot" cx="36" cy="44" r="2.6"/><circle class="d-dot" cx="20" cy="82" r="2.6"/><circle class="d-out2" cx="66" cy="24" r="2.6"/><circle class="d-out2" cx="76" cy="40" r="2.6"/><circle class="d-out2" cx="84" cy="56" r="2.6"/><circle class="d-out2" cx="62" cy="48" r="2.6"/><circle class="d-out2" cx="72" cy="64" r="2.6"/><circle class="d-out2" cx="86" cy="30" r="2.6"/></svg></figure>
+          <figure class="dia-box"><svg class="dia" width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2" role="img" aria-label="Two point clouds separated by a curved decision boundary"><path class="d-boundary" d="M30 10 C 46 34, 52 60, 74 92"/><circle class="d-dot" cx="18" cy="40" r="2.6"/><circle class="d-dot" cx="26" cy="56" r="2.6"/><circle class="d-dot" cx="14" cy="62" r="2.6"/><circle class="d-dot" cx="30" cy="74" r="2.6"/><circle class="d-dot" cx="22" cy="30" r="2.6"/><circle class="d-dot" cx="36" cy="44" r="2.6"/><circle class="d-dot" cx="20" cy="82" r="2.6"/><circle class="d-out2" cx="66" cy="24" r="2.6"/><circle class="d-out2" cx="76" cy="40" r="2.6"/><circle class="d-out2" cx="84" cy="56" r="2.6"/><circle class="d-out2" cx="62" cy="48" r="2.6"/><circle class="d-out2" cx="72" cy="64" r="2.6"/><circle class="d-out2" cx="86" cy="30" r="2.6"/></svg></figure>
           <div>
             <span class="etitle">Fake news detection and its impact on financial markets</span>
             <span class="emeta">Brigade Commander Award, Republic of Korea Army start-up competition, 2021</span>
@@ -384,6 +356,6 @@
     <a href="#" class="totop">Back to top &uarr;</a>
   </footer>
 
-  <script src="js/figures.js" defer></script>
+  <script src="js/figures.js?v=202611241038" defer></script>
 </body>
 </html>
